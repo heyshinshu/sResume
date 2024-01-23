@@ -1,46 +1,53 @@
 ---
-import { t } from '~/i18n/labels'
+import { t } from "~/i18n/labels";
 
-import Section from '~/components/Section.astro'
+import Section from "~/components/Section.astro";
 
-const birth = new Date('1990-03-20')
+// const birth = new Date('1990-03-20')
 
 const location = {
-  city: 'Bangkok, Thailand',
-  href: 'https://maps.app.goo.gl/FefycsDeMVdyAu5x6',
-}
+  city: "Bangkok, Thailand",
+  href: "https://maps.app.goo.gl/FefycsDeMVdyAu5x6",
+};
 
 const contact = [
   {
-    href: 'mailto:ewifolio@gmail.com',
-    text: 'From Amsterdam, The Netherlands',
-  },  {
-    href: 'tel:+66972458697',
-    text: '+66 972 458 697',
+    href: "mailto:ewifolio@gmail.com",
+    text: "From Amsterdam, The Netherlands",
   },
   {
-    href: 'mailto:ewifolio@gmail.com',
-    text: 'ewifolio@gmail.com',
+    href: "tel:+66972458697",
+    text: "+66 972 458 697",
   },
   {
-    href: 'https://www.linkedin.com/in/kevinjoelpompilio/',
-    text: 'in.com/kevinjoelpompilio',
+    href: "mailto:ewifolio@gmail.com",
+    text: "ewifolio@gmail.com",
   },
-]
+  {
+    href: "https://www.linkedin.com/in/kevinjoelpompilio/",
+    text: "in.com/kevinjoelpompilio",
+  },
+];
 
-const currentAge = new Date().getFullYear() - birth.getFullYear()
+// const currentAge = new Date().getFullYear() - birth.getFullYear()
 ---
-<Section class="contact" title={t('contact')}>
+
+<Section class="contact" title={t("contact")}>
   <ul>
     <li>
-      {currentAge}{t('years_old')}, {t('living')} <a href={location.href} target="_blank">{location.city}</a>
+      {t("living")}
+      <a href={location.href} target="_blank">{location.city}</a>
     </li>
 
-    {contact.map(({ href, text }) => (
-      <li>
-        <a href={href} target="_blank">{text}</a>
-      </li>
-    ))}
+    {
+      contact.map(({ href, text }) => (
+        <li>
+          <a href={href} target="_blank">
+            {text}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </Section>
 
@@ -49,7 +56,7 @@ const currentAge = new Date().getFullYear() - birth.getFullYear()
     grid-area: infos;
     padding: 0 1.5em 1.5em;
     color: var(--emphasis);
-    font-size: .8em;
+    font-size: 0.8em;
     font-family: sans-serif;
     line-height: 1.6;
   }
